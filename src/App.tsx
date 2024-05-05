@@ -11,6 +11,7 @@ const useStyles = makeStyles({
     display:"flex",
     flexFlow:"row",
     width:"100%",
+    marginTop:"10px"
   }
 });
 
@@ -34,16 +35,13 @@ const  App = ()=> {
 
   return (
     <div className="App">
-      <Grid lg={12} className={classes.root}>
+      <Grid lg={12} className={classes.root}>  
+        <Button onClick={generateImage}>Click Me</Button>
         <Grid lg={6} className={classes.root}>
-          <MainGrid/>
-          <Button onClick={generateImage}>Click Me</Button>
+          <MainGrid currentImage={currentImage}/>
         </Grid>
         <Grid lg={6} className={classes.root}>
-          <PuzzleGrid/>
-          <div>
-          {!!currentImage && <img src={`${currentImage}&w=380&dpr=2`} alt="test"/>}
-          </div>
+          <PuzzleGrid currentImage={currentImage}/>
         </Grid>
       </Grid>
     </div>
